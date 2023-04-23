@@ -87,7 +87,9 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-container {
   width: 100%;
   float: left;
-  height: 900px;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   -moz-flex-wrap: wrap;
@@ -96,12 +98,12 @@ h1, h2, h3, h4, h5, h6, figure {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
+  background: #232325;
 }
 
 .countdown-wrap, .bg-cover {
   width: 50%;
   float: left;
-  background: #232325;
 }
 @media screen and (max-width: 992px) {
   .countdown-wrap, .bg-cover {
@@ -183,13 +185,11 @@ form label {
 
 .display-t {
   display: table;
-  min-height: 700px;
   margin: 0 auto;
 }
 .display-t .display-tc {
   display: table-cell !important;
   vertical-align: middle;
-  min-height: 700px;
 }
 .display-t .display-tc h1, .display-t .display-tc h2 {
   margin: 0;

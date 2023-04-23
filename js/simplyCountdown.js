@@ -115,8 +115,8 @@
      */
     simplyCountdown = function (elt, args) {
         var parameters = extend({
-                year: 2026,
-                month: 7,
+                year: 2015,
+                month: 6,
                 day: 28,
                 hours: 0,
                 minutes: 0,
@@ -130,7 +130,7 @@
                 },
                 plural: true,
                 inline: false,
-                enableUtc: false,
+                enableUtc: true,
                 onEnd: function () {
                     return;
                 },
@@ -154,12 +154,12 @@
             cd = document.querySelectorAll(elt);
 
         targetTmpDate = new Date(
-            2024,
-            1,
-            1,
-            1,
-            1,
-            1
+            parameters.year,
+            parameters.month - 1,
+            parameters.day,
+            parameters.hours,
+            parameters.minutes,
+            parameters.seconds
         );
 
         if (parameters.enableUtc) {
@@ -189,17 +189,14 @@
                 if (parameters.enableUtc) {
                     nowUtc = new Date(now.getFullYear(), now.getMonth(), now.getDate(),
                         now.getHours(), now.getMinutes(), now.getSeconds());
-                    secondsLeft = (targetDate - now.getTime()) / 1000;
+                    secondsLeft = (targetDate - nowUtc.getTime()) / 1000;
 
                 } else {
                     secondsLeft = (targetDate - now.getTime()) / 1000;
                 }
 
                 if (secondsLeft > 0) {
-                    let _months = targetDate.getMonth()-now.getMonth()+12;
-                    let _days = targetDate.getDate()-now.getDate();
                     days = parseInt(secondsLeft / 86400, 10);
-                    //parseInt(secondsLeft / 86400, 10);
                     secondsLeft = secondsLeft % 86400;
 
                     hours = parseInt(secondsLeft / 3600, 10);
